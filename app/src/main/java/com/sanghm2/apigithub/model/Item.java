@@ -23,7 +23,6 @@ public class Item {
     private String name;
     private String full_name;
 
-    @JsonProperty("private")
     private boolean itemPrivate;
 
     private Owner owner;
@@ -101,6 +100,18 @@ public class Item {
     private long watchers;
     private String defaultBranch;
 
+
+    public static List<Item> FromJson(String response) {
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            Gson gson = new Gson();
+            return gson.fromJson(jsonObject.getString("items"), new TypeToken<List<Item>>() {
+            }.getType());
+        } catch (JSONException jse) {
+            jse.printStackTrace();
+        }
+        return new ArrayList<>();
+    }
     @JsonProperty("id")
     public long getID() { return id; }
     @JsonProperty("id")

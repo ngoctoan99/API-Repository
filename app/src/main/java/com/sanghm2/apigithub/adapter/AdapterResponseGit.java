@@ -48,13 +48,13 @@ public class AdapterResponseGit extends RecyclerView.Adapter<AdapterResponseGit.
         holder.name.setText(item.getName());
 
         /// covert date to long and long to date dd-mm-yyyy
-        String dateString = item.getCreatedAt() ;
-        Instant instant = Instant.parse(dateString);
-        long millis = instant.toEpochMilli();
-        Date date = new Date(millis);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        String dateString1 = sdf.format(date);
-        holder.createdAt.setText(dateString1);
+//        String dateString = item.getCreatedAt() ;
+//        Instant instant = Instant.parse(dateString);
+//        long millis = instant.toEpochMilli();
+//        Date date = new Date(millis);
+//        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+//        String dateString1 = sdf.format(date);
+//        holder.createdAt.setText(dateString1);
 
 //        /// check private item card
         if(item.getItemPrivate()){
@@ -101,5 +101,10 @@ public class AdapterResponseGit extends RecyclerView.Adapter<AdapterResponseGit.
             privateCard = itemView.findViewById(R.id.privateCard);
             cardGround = itemView.findViewById(R.id.cardGround);
         }
+    }
+    @SuppressLint("NotifyDataSetChanged")
+    public void updateAdapter(List<Item> itemList){
+        this.itemList = itemList ;
+        notifyDataSetChanged();
     }
 }

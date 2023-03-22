@@ -16,19 +16,23 @@
         android:theme="@style/Theme.APIGithub"
         tools:targetApi="31">
         <activity
-            android:name=".screen.SearchRepoByName"
+            android:name=".screen.SearchUserAndRepScreen"
+            android:exported="false" />
+        <activity
+            android:name=".screen.HomeScreen"
             android:exported="false" />
         <activity
             android:name=".screen.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".screen.MainActivity"
-            android:exported="false"></activity>
+            android:name=".screen.ListRepositoryScreen"
+            android:exported="false" />
     </application>
 
 </manifest>
