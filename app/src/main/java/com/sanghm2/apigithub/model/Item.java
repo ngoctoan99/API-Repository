@@ -67,7 +67,7 @@ public class Item {
     private String releasesURL;
     private String deploymentsURL;
     private String created_at;
-    private String updatedAt;
+    private String updated_at;
     private String pushedAt;
     private String gitURL;
     private String sshURL;
@@ -348,9 +348,9 @@ public class Item {
     public void setCreatedAt(String value) { this.created_at = value; }
 
     @JsonProperty("updated_at")
-    public String getUpdatedAt() { return updatedAt; }
+    public String getUpdatedAt() { return updated_at; }
     @JsonProperty("updated_at")
-    public void setUpdatedAt(String value) { this.updatedAt = value; }
+    public void setUpdatedAt(String value) { this.updated_at = value; }
 
     @JsonProperty("pushed_at")
     public String getPushedAt() { return pushedAt; }

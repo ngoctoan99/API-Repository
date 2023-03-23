@@ -8,6 +8,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface RetrofitAPI {
     @GET("/users/{user}/repos")
@@ -22,6 +23,18 @@ public interface RetrofitAPI {
     @GET("/users/{user}")
     Call<JsonElement>getUser(@Path("user") String user);
 
-    @GET("/search/repositories?q=android&page=1&per_page=10&sort=stars&order=desc")
-    Call<JsonElement>getRepoNew();
+    @GET("/search/repositories?q=android")
+    Call<JsonElement>getRepoNew(@Query("page")int page,
+                                @Query("per_page") int perpage,
+                                @Query("sort") String sort,
+                                @Query("order") String order);
+
+    @GET("/search/users")
+    Call<JsonElement>getSearchUser(@Query("q") String name,
+                                   @Query("page")int page,
+                                   @Query("per_page") int perpage,
+                                   @Query("sort") String sort,
+                                   @Query("order") String order);
+
+
 }

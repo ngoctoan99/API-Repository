@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:backgroundTint="@color/black1"
-    app:cardCornerRadius="10dp"
     android:layout_margin="5dp"
     android:layout_height="80dp">
     <RelativeLayout
@@ -26,31 +25,21 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="Nguyễn Ngọc Toàn"
-                android:textColor="@color/white"
-                android:textSize="15sp" />
-
-            <TextView
                 android:id="@+id/nameGithub"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/name"
+                android:layout_marginStart="10dp"
                 android:text="ngoctoan99"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/bio"
+                android:id="@+id/type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/name"
+                android:layout_below="@+id/nameGithub"
                 android:layout_marginStart="10dp"
-                android:text="Android Developer"
+                android:text="User"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
         </RelativeLayout>

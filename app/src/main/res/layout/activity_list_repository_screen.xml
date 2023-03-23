@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/refresh"
+    android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".screen.ListRepositoryScreen">
+
+    <RelativeLayout
+        android:id="@+id/rlLoading"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/progressBar"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:text="Đang tải vui lòng đợi..."
+            android:textColor="@color/white" />
+    </RelativeLayout>
+    <RelativeLayout
+          android:visibility="gone"
+          android:id="@+id/errorRl"
+          android:layout_width="match_parent"
+          android:layout_centerInParent="true"
+          android:layout_height="match_parent">
+             <ImageView
+                 android:id="@+id/searchoff"
+                 android:layout_width="100dp"
+                 android:layout_centerInParent="true"
+                 android:layout_height="100dp"
+                 android:src="@drawable/ic_baseline_search_off_24"/>
+             <TextView
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:text="Not found data of user"
+                 android:textColor="@color/white"
+                 android:layout_marginStart="30dp"
+                 android:layout_marginEnd="30dp"
+                 android:textAlignment="center"
+                 android:id="@+id/errorText"
+                 android:layout_below="@+id/searchoff"/>
+      </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/avatar"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/error"
+            app:shapeAppearanceOverlay="@style/circle" />
+        <RelativeLayout
+            android:id="@+id/rl1"
+            android:layout_below="@+id/avatar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/fullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="5dp"
+                android:text="Nguyễn Ngọc Toàn"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/shareBtn"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@id/fullName"
+                android:src="@drawable/ic_baseline_share_24" />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/nameGithub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="ngoctoan99"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nameGithub"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="Android Developer"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rlrepo"
+        android:layout_width="match_parent"
+        android:layout_below="@id/rlDetail"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Repository"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@id/tv1"
+            android:background="#5CFFFFFF" />
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_git"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlrepo"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/row_response_git" />
+</RelativeLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

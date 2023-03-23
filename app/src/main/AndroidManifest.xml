@@ -16,7 +16,10 @@
         android:theme="@style/Theme.APIGithub"
         tools:targetApi="31">
         <activity
-            android:name=".screen.SearchUserAndRepScreen"
+            android:name=".screen.FullmageScreen"
+            android:exported="false" />
+        <activity
+            android:name=".screen.ListUserScreen"
             android:exported="false" />
         <activity
             android:name=".screen.HomeScreen"
