@@ -9,12 +9,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.google.gson.JsonElement;
 import com.sanghm2.apigithub.R;
@@ -47,6 +49,7 @@ public class HomeScreen extends AppCompatActivity {
         initView();
         getNewRepo(page);
         actionSearch();
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_left);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -61,6 +64,22 @@ public class HomeScreen extends AppCompatActivity {
                 hideKeyBoard();
             }
         });
+        searchName.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                if (keyEvent.getAction() == KeyEvent.ACTION_DOWN  && i == KeyEvent.KEYCODE_ENTER)
+                {
+                    Intent intent = new Intent(HomeScreen.this,ListUserScreen.class);
+                    intent.putExtra("namesearch",searchName.getText().toString().trim());
+                    startActivity(intent);
+                    searchName.setText("");
+                    hideKeyBoard();
+                    return true;
+                }
+                return false;
+            }
+        });
+
         rv_new_repo.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             @Override
             public void onScrollChange(View view, int i, int i1, int i2, int i3) {

@@ -47,6 +47,7 @@ public class ListUserScreen extends AppCompatActivity {
         setContentView(R.layout.activity_list_user_screen);
         namesearch = getIntent().getStringExtra("namesearch");
         initView();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
         callApiSearch(namesearch,page);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -108,6 +109,7 @@ public class ListUserScreen extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
     }
 
 }

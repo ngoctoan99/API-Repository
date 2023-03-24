@@ -2,10 +2,12 @@ package com.sanghm2.apigithub.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.card.MaterialCardView;
 import com.sanghm2.apigithub.R;
 import com.sanghm2.apigithub.model.Item;
+import com.sanghm2.apigithub.screen.WebViewRepositoryScreen;
 
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -46,9 +49,17 @@ public class AdapterResponseGit extends RecyclerView.Adapter<AdapterResponseGit.
         Item item = itemList.get(position);
         /// get Name repo
         holder.name.setText(item.getName());
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context , WebViewRepositoryScreen.class);
+                intent.putExtra("url",item.getHTMLURL());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
         /// covert date to long and long to date dd-mm-yyyy
-        String dateString = item.getUpdatedAt() ;
+        String dateString = item.getPushedAt() ;
         Instant instant = Instant.parse(dateString);
         long millis = instant.toEpochMilli();
         Date date = new Date(millis);

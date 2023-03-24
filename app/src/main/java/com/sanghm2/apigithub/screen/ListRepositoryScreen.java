@@ -52,6 +52,7 @@ public class ListRepositoryScreen extends AppCompatActivity {
         setContentView(R.layout.activity_list_repository_screen);
         name = getIntent().getStringExtra("name");
         initView();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
         callApi(name);
         setData();
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
@@ -175,5 +176,6 @@ public class ListRepositoryScreen extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
     }
 }

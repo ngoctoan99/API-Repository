@@ -12,6 +12,8 @@
         <entry key="..\:/APIGithub/app/src/main/res/layout/activity_search_repo_by_name.xml" value="0.3625" />
         <entry key="..\:/APIGithub/app/src/main/res/layout/activity_search_user_and_rep_screen.xml" value="0.3625" />
         <entry key="..\:/APIGithub/app/src/main/res/layout/activity_splash_screen.xml" value="0.3625" />
+        <entry key="..\:/APIGithub/app/src/main/res/layout/activity_web_view_repository_screen.xml" value="0.3625" />
+        <entry key="..\:/APIGithub/app/src/main/res/layout/row_commit.xml" value="0.15648148148148147" />
         <entry key="..\:/APIGithub/app/src/main/res/layout/row_response_git.xml" value="0.33" />
         <entry key="..\:/APIGithub/app/src/main/res/layout/row_search_user.xml" value="0.3614583333333333" />
         <entry key="..\:/APIGithub/app/src/main/res/layout/row_user.xml" value="0.3625" />

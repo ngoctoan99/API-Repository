@@ -26,7 +26,7 @@ public class Item {
     private boolean itemPrivate;
 
     private Owner owner;
-    private String htmlURL;
+    private String html_url;
     private Object description;
     private boolean fork;
     private String url;
@@ -68,7 +68,7 @@ public class Item {
     private String deploymentsURL;
     private String created_at;
     private String updated_at;
-    private String pushedAt;
+    private String pushed_at;
     private String gitURL;
     private String sshURL;
     private String cloneURL;
@@ -143,9 +143,9 @@ public class Item {
     public void setOwner(Owner value) { this.owner = value; }
 
     @JsonProperty("html_url")
-    public String getHTMLURL() { return htmlURL; }
+    public String getHTMLURL() { return html_url; }
     @JsonProperty("html_url")
-    public void setHTMLURL(String value) { this.htmlURL = value; }
+    public void setHTMLURL(String value) { this.html_url = value; }
 
     @JsonProperty("description")
     public Object getDescription() { return description; }
@@ -353,9 +353,9 @@ public class Item {
     public void setUpdatedAt(String value) { this.updated_at = value; }
 
     @JsonProperty("pushed_at")
-    public String getPushedAt() { return pushedAt; }
+    public String getPushedAt() { return pushed_at; }
     @JsonProperty("pushed_at")
-    public void setPushedAt(String value) { this.pushedAt = value; }
+    public void setPushedAt(String value) { this.pushed_at = value; }
 
     @JsonProperty("git_url")
     public String getGitURL() { return gitURL; }
